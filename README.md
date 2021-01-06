@@ -5,10 +5,19 @@ Kubernetes is an open-source container-orchestration system for automating compu
 
 
 free h 
+---------------------------------
 sudo -i
+
+---------------------------------
 swapoff -a
+
+---------------------------------
 swapo
+
+---------------------------------
 free -h 
+
+---------------------------------
 vi /etc/fstab   #comment all line starting with swap 
 
 # Ubuntu OS Detais Check : -
