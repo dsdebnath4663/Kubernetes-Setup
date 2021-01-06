@@ -31,6 +31,10 @@ See our documentation on [kubernetes.io].
 
 free -h 
 sudo -i
+```
+
+Disable swapoff
+```
 swapoff -a
 free -h 
 ```
