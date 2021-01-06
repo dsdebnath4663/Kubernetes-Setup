@@ -140,5 +140,5 @@ To start using your cluster, you need to run the following as a regular user:
 Flannel is an open-source virtual network project managed by CoreOS network designed for Kubernetes. Each host in a flannel cluster runs an agent called flanneld. It assigns each host a subnet, which acts as the IP address pool for containers running on the host. Containers can then contact other containers directly, using their IP address. Flannel supports multiple backends for encapsulating packets. The recommended choice is Virtual Extensible LAN (VXLAN), which runs a Layer 2 network on top of a Layer 3 infrastructure. Flannel also supports host-gw, which maps direct routes between hosts in a manner similar to Calico.
 
 
- 
+ https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/adding-windows-nodes/
 
