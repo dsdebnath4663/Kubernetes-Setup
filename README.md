@@ -7,16 +7,12 @@ Kubernetes is an open-source container-orchestration system for automating compu
 free h 
 ---------------------------------
 sudo -i
-
 ---------------------------------
 swapoff -a
-
 ---------------------------------
 swapo
-
 ---------------------------------
 free -h 
-
 ---------------------------------
 vi /etc/fstab   #comment all line starting with swap 
 
@@ -57,17 +53,23 @@ $ sudo add-apt-repository \
  
 # Installing kubeadm, kubelet and kubectl :-
 
+
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+
+---------------------------------
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
+---------------------------------
 sudo apt-get update
+---------------------------------
 sudo apt-get install -y kubelet kubeadm kubectl
-
+---------------------------------
 # Configure Kubernetes Master : -
 
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+---------------------------------
 kubectl get nodes
 
 
