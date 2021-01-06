@@ -92,11 +92,9 @@ $ sudo add-apt-repository \
 
  You will install these packages on all of your machines:
 
- kubeadm: the command to bootstrap the cluster.
-
- kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
-
- kubectl: the command line util to talk to your cluster
+  * kubeadm: the command to bootstrap the cluster.
+  * kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
+  * kubectl: the command line util to talk to your cluster
 
   ```
  $ sudo apt-get update && sudo apt-get install -y apt-transport-https curl
