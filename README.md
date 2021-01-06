@@ -114,12 +114,26 @@ $ sudo add-apt-repository \
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 
- Get ExternalIPs of all nodes
+You can see from the output that there are several objects that are created here and to verify this installation please run the following:
+
 ```
-kubectl get nodes
+ $ kubectl get nodes 
+       
+ $ kubectl get nodes -A
 ```
 
+Your Kubernetes control-plane has initialized successfully!
 
+To start using your cluster, you need to run the following as a regular user:
+```
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+# Configure Kubernetes Network with Flannel
+
+Flannel is an open-source virtual network project managed by CoreOS network designed for Kubernetes. Each host in a flannel cluster runs an agent called flanneld. It assigns each host a subnet, which acts as the IP address pool for containers running on the host. Containers can then contact other containers directly, using their IP address. Flannel supports multiple backends for encapsulating packets. The recommended choice is Virtual Extensible LAN (VXLAN), which runs a Layer 2 network on top of a Layer 3 infrastructure. Flannel also supports host-gw, which maps direct routes between hosts in a manner similar to Calico.
 
 
  
