@@ -170,4 +170,32 @@ Flannel is an open-source virtual network project managed by CoreOS network desi
 
 
  https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/adding-windows-nodes/
+ 
+ 
+ # What is a Pod?
+ 
+ Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
+ 
+ The shared context of a Pod is a set of Linux namespaces, cgroups, and potentially other facets of isolation - the same things that isolate a Docker container. Within a Pod's   context, the individual applications may have further sub-isolations applied.
+
+ In terms of Docker concepts, a Pod is similar to a group of Docker containers with shared namespaces and shared filesystem volumes.
+ 
+ Pods in a Kubernetes cluster are used in two main ways:
+ 
+  * Pods that run a single container
+  * Pods that run multiple containers that need to work together.
+  
+  # How Pods manage multiple containers :-
+  
+  For example, you might have a container that acts as a web server for files in a shared volume, and a separate "sidecar" container that updates those files from a remote       source, as in the following diagram:
+  
+  <img src="https://d33wubrfki0l68.cloudfront.net/aecab1f649bc640ebef1f05581bfcc91a48038c4/728d6/images/docs/pod.svg" width="500">
+  
+   Some Pods have init containers as well as app containers. Init containers run and complete before the app containers are started.
+
+   Pods natively provide two kinds of shared resources for their constituent containers: networking and storage.
+
+
+
+
 
