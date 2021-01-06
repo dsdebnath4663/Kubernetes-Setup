@@ -136,15 +136,33 @@ You can see from the output that there are several objects that are created here
        
  $ kubectl get nodes -A
 ```
-
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 ```
+
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+
+Alternatively, if you are the root user, you can run:
+```
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+```
+
+kubeadm join 10.0.2.12:6443 --token ed9xpd.o947vlq22kvwkrtf \
+    --discovery-token-ca-cert-hash sha256:ab7494e9a79d11e02beaa1061b6cb39eed55b4caa0f5cb76d2b852278884bad5 
+```
+
 
 # Configure Kubernetes Network with Flannel
 
