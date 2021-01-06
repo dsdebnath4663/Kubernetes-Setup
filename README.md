@@ -85,25 +85,31 @@ $ sudo add-apt-repository \
  ```
  Verify the MAC address and product_uuid are unique for every node :-
 ```
- sudo cat /sys/class/dmi/id/product_uuid
+ $ sudo cat /sys/class/dmi/id/product_uuid
  ```
  
 # Installing kubeadm, kubelet and kubectl :-
 
-```
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
+ You will install these packages on all of your machines:
+
+ kubeadm: the command to bootstrap the cluster.
+
+ kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
+
+ kubectl: the command line util to talk to your cluster
+
+  ```
+ $ sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   deb https://apt.kubernetes.io/ kubernetes-xenial main
+   EOF
+
+ $ sudo apt-get update
+ $ sudo apt-get install -y kubelet kubeadm kubectl
 ```
 
-```
-sudo apt-get update
 
-sudo apt-get install -y kubelet kubeadm kubectl
-
-```
  Configure Kubernetes Master : -
 
 ```
