@@ -83,7 +83,7 @@ $ sudo add-apt-repository \
 
  $ docker version
  ```
-# Verify the MAC address and product_uuid are unique for every node :-
+ Verify the MAC address and product_uuid are unique for every node :-
 ```
  sudo cat /sys/class/dmi/id/product_uuid
  ```
@@ -104,7 +104,7 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 
 ```
-# Configure Kubernetes Master : -
+ Configure Kubernetes Master : -
 
 ```
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
